@@ -1,2 +1,15 @@
-# luffys-balance
-Here is the assignment for a fully functioning work schedule.
+# Work Schedule
+
+## Description
+
+## Instalization
+N/A
+
+## Usage
+[Click here to see the final product]()
+
+## Credits
+![Screenshot of the webpage]()
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
