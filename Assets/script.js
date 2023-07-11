@@ -15,7 +15,7 @@ $(document).ready(function () {
       $(this).parent().attr("id"),
       $(this).parent().find("textarea").val()
     );
-
+  });
     // TODO: Add code to apply the past, present, or future class to each time
     // block by comparing the id to the current hour. HINTS: How can the id
     // attribute of each time-block be used to conditionally add or remove the
@@ -24,11 +24,11 @@ $(document).ready(function () {
 
     $(".time-block").each(function () {
       var presentHour = dayjs().hour();
-      var selector = $(this).attr("id");
+      var selector = $(this).attr("id").split("-")[1];
 
       if (selector > presentHour) {
         $(this).addClass("future");
-      } else if (selector === presentHour) {
+      } else if (selector == presentHour) {
         $(this).addClass("present");
       } else {
         $(this).addClass("past");
@@ -43,5 +43,5 @@ $(document).ready(function () {
     });
 
     // TODO: Add code to display the current date in the header of the page.
-  });
+  
 });
