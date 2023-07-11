@@ -9,70 +9,39 @@ $(document).ready(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
+  $("#currentDay").text(dayjs().format("dddd, MMMM D"));
+  $(".saveBtn").on("click", function () {
+    localStorage.setItem(
+      $(this).parent().attr("id"),
+      $(this).parent().find("textarea").val()
+    );
 
-  var textNine = $("#hour-9").children("textarea");
-  var saveNine = $("#hour-9").children("button");
-  // function for looping
-  saveNine.on("click", function () {
-    var saveTexeNine = $(textNine[0]).val();
-    localStorage.setItem("first-save", saveTexeNine)
-  });
+    // TODO: Add code to apply the past, present, or future class to each time
+    // block by comparing the id to the current hour. HINTS: How can the id
+    // attribute of each time-block be used to conditionally add or remove the
+    // past, present, and future classes? How can Day.js be used to get the
+    // current hour in 24-hour time?
 
+    $(".time-block").each(function () {
+      var presentHour = dayjs().hour();
+      var selector = $(this).attr("id");
 
-  $(textNine[0]).val(localStorage.getItem("first-save")) 
-  
-
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  function timeSelector(){
-    $(".row").each(function(){
-      var selector = parseInt($(this).attr("id"));
-      var presentHour = parseInt(moment().format("HH"));
-
-      $(this).removeclass("past present future")
-
-      if (presentHour > selector) {
-        $(this).addclass("past");
-      } else if (presentHour < selector){
-      $(this).addclass("future");
+      if (selector > presentHour) {
+        $(this).addClass("future");
+      } else if (selector === presentHour) {
+        $(this).addClass("present");
       } else {
-        $(this).addclass("present");
+        $(this).addClass("past");
       }
-    })
-  }
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  var list = {
-    "hour-9": [],
-    "hour-10": [],
-    "hour-11": [],
-    "hour-12": [],
-    "hour-13": [],
-    "hour-14": [],
-    "hour-15": [],
-    "hour-16": [],
-    "hour-17": [],
-  };
+    });
 
-  var storeList = function () {
-    localStorage.setItem("list", JSON.stringify(list));
-  };
+    // TODO: Add code to get any user input that was saved in localStorage and set
+    // the values of the corresponding textarea elements. HINT: How can the id
+    // attribute of each time-block be used to do this?
+    $(".description").each(function () {
+      $(this).val(localStorage.getItem($(this).parent().attr("id")));
+    });
 
-  var retrveList = function () {
-    var storedList = JSON.parse(localStorage.getItem("list"));
-    if (storedList) {
-      list = storedList;
-    }
-  };
-
-  // TODO: Add code to display the current date in the header of the page.
-  var today = dayjs();
-  $("#currentDay").text(today.format("dddd MMMM D"));
+    // TODO: Add code to display the current date in the header of the page.
+  });
 });
-
-
-timeSelector()

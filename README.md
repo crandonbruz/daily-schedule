@@ -1,7 +1,7 @@
 # Work Schedule
 
 ## Description
-
+Here is my work scheduler. In this assignment, the instructions were to
 ## Instalization
 N/A
 
