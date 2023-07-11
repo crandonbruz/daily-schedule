@@ -6,7 +6,7 @@ Here is my work scheduler. In this assignment, the instructions were to make the
 N/A
 
 ## Usage
-[Click here to see the final product]()
+[Click here to see the final product](https://crandonbruz.github.io/daily-schedule/)
 
 ## Credits
 ![Screenshot of the webpage](./assets/images/localhost_52330_index.html.png)
