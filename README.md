@@ -9,7 +9,7 @@ N/A
 [Click here to see the final product](https://crandonbruz.github.io/daily-schedule/)
 
 ## Credits
-![Screenshot of the webpage](./Assets/images/localhost_52330_index.html.png)
+![Screenshot of the webpage](./peanuts/images/localhost_52330_index.html.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
